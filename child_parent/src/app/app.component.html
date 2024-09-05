@@ -1,0 +1,8 @@
+<div>
+  <h4>Recieved From Child {{value1}}</h4>
+  <h5> Array Print : </h5>
+  <ul>
+    <li *ngFor="let item of arr">{{ item}}</li>
+  </ul>
+  <app-child (childEvent)="sendData($event)"></app-child>
+</div>

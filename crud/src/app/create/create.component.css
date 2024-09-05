@@ -1,0 +1,18 @@
+.container {
+  width: 50vw;
+  height: fit-content;
+  margin: 20px 20px;
+  padding: 20px 20px;
+  font-size: 24px;
+  border: 3px solid blue;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.alert {
+  background-color: #fed3d3;
+  color: #820000;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}

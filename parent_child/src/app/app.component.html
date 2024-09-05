@@ -1,0 +1,36 @@
+<span>
+  <h2>{{title}} app is running!</h2>
+</span>
+
+<div class="container">
+  <h4>Parent Component</h4>
+</div>
+
+<p>
+  To send whatever is entered in the text Field to child component <br /></p>
+  <p>
+  Enter the Name:
+  <input type="text" class="form-control" [(ngModel)]="EnterName" />
+</p>
+<p> Enter the Age:
+  <input type="text" class="form-control" [(ngModel)]="EnterAge" />
+</p>
+<p> Enter the 
+  Marital Status : 
+  <input type="text" class="form-control" [(ngModel)]="EnterStatus" /></p>
+<p>
+    <input type="button" value="send" (click)="transferData()" class="btn btn-primary" />
+</p>
+<div>
+  <app-home
+  [parentData1]="parentData1"
+  [parentData2]="parentData2"
+  [parentData3]="parentData3"
+  ></app-home>
+
+</div>
+<div>
+  <h4>Recieved From Child {{value}}</h4>
+  
+  <app-about (sendData)="sendData($event)"></app-about>
+</div>

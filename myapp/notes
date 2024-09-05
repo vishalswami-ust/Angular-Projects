@@ -1,0 +1,47 @@
+<div style="border : solid 2px black">
+    <h2>Product data </h2>
+    <p>Product ID: {{productId}}</p>
+    <p>Description : {{description}}</p>
+    <p>In stock : {{available}}</p>
+    <p>quantity : {{quant}}</p>
+    <p>Enter order quantity : <input type="text" name="oid" id ="orderId" [(ngModel)] = "orderqty"/> {{orderqty}} </p>
+    <p>Delivery : <span [style.background-color]="deliverColor" >&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+    <p><button name = "placeorder" (click)="printOrder()">Place Order</button></p>
+    <div
+      *ngIf ="quant > orderqty ; else myTemplate" >Ordered quantity Available </div>
+      <ng-template #myTemplate > Ordered Quantity not Available </ng-template>
+      {{ orderDate1 | date : "dd/MMM/yyyy"}}
+ 
+    <div *ngFor="let product of products">
+      <p>Description: {{ product.description }}</p>
+      <p>Product ID: {{ product.productId }}</p>
+      <p>Price: {{ product.price }}</p>
+    </div>
+
+   
+   
+  </div>
+
+
+
+  title = 'Vishal';
+  comp = " From UST";
+  location = "Trivandrum"
+  productId="AZO1010";
+  description = "Dual camera, dual sim, 256gb, 4gb ram";
+  available = true;
+  quant = 100
+  orderqty = 0;
+  deliverColor = "red";
+  orderDate1 : Date = new Date;
+  printOrder():void{
+    alert(" order placed = "+ this.orderqty );
+  }
+    products = [
+      { productId: "1234", description: "Mobile", price: "70000" },
+      { productId: "123", description: "Laptop", price: "75000" },
+      { productId: "1235", description: "Ipad", price: "30000" },
+      { productId: "1234", description: "iPhone15", price: "90000" },
+      { productId: "1234", description: "TV", price: "50000" }
+   
+    ];

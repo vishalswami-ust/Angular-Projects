@@ -1,0 +1,79 @@
+
+  <div>
+    <div class="main">
+          <h2>Product data </h2>
+          <p>Product ID: {{productId}}</p>
+          <p>Description : {{description}}</p>
+          <p>In stock : {{available}}</p>
+          <p>quantity : {{quant}}</p>
+          <p>Enter order quantity : <input type="text" name="oid" id ="orderId" [(ngModel)] = "orderqty" #inputqty/> {{orderqty}} </p>
+          <p style="width: 15px">Delivery: <span [style.background-color]="deliverColor" >&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+          <p><button name = "placeorder" (click)="printOrder(inputqty.value)">Place Order</button></p>
+          <div
+            *ngIf ="quant > orderqty ; else myTemplate" >Ordered quantity Available<br/>
+          </div>
+          <ng-template #myTemplate > 
+            Ordered Quantity not Available <br/> 
+          </ng-template>
+          {{orderDate | date : "dd/MMM/yyyy"}}
+            <!-- {{orderDate | date : "dd/MM/yyyy"}}
+            {{orderDate | date : "dd/MMMM/yyyy"}} -->
+
+
+            <!-- Switch Case -->
+          <div [ngSwitch] = "inputqty.value">
+              Availability : &nbsp;
+              <span  *ngSwitchCase="201"> Quantity Not Available. </span>
+              <span  *ngSwitchCase="200"> Exact Quantity Available. </span>
+              <span  *ngSwitchCase="199"> Full Not Available. </span>
+              <span  *ngSwitchDefault> Check you input </span>
+          </div>
+                  
+
+          <div class ="sub" *ngFor="let product of products">
+            <p>Description: {{ product.description }}</p>
+            <p>Product ID: {{ product.productId }}</p>
+            <p>Price: {{ product.price }}</p>
+          </div>   
+
+
+          <!-- Demonstrate other attributes of the for loop in angular like isEven,etc.. -->
+
+          <!-- <div *ngFor ="let product of products ; index as i ; even as isEven">
+          <span *ngIf ="isEven">
+            {{i}}
+            {{product.productId}}
+            {{product.description}}
+            {{product.price}}
+          </span>
+        </div> -->
+
+
+        <div *ngFor ="let product of products ; index as i ; even as isEven">
+          
+          <span *ngIf = "isEven; else isOdd" style="background-color:lightcoral">
+ 
+            {{i}}
+            {{product.productId}}
+            {{product.description}}
+            {{product.price}}
+          </span>
+     
+          <ng-template #isOdd>
+            <span style="background-color: lightskyblue">
+              {{i}}
+              {{product.productId}}
+              {{product.description}}
+              {{product.price}}
+            </span>
+          </ng-template>
+        </div>
+      </div>
+      <!-- <div style ="border: 2px solid green">
+          <app-color></app-color>
+      </div> -->
+
+      <div style ="border: 3px solid indigo ">
+        <app-data></app-data>
+    </div>  
+

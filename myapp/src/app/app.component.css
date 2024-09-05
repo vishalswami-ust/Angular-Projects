@@ -1,0 +1,22 @@
+*{
+    margin : 0px;
+    padding: 0px;
+    display: block;
+   
+}
+
+
+.main {
+    max-width: fit-content;
+    margin: 10px 10px;
+    padding: 10px;
+    border: 2px solid black;
+}
+
+.sub{
+    max-width: 50%;
+    border:1px solid black;
+    margin:5px 5px;
+    padding: 10px;
+}
+
